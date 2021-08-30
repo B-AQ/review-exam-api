@@ -6,7 +6,6 @@ const getApi = (req, res) => {
     .get(`https://flowers-api-13.herokuapp.com/getFlowers`)
     .then((flower) => res.send(flower.data));
 };
-
 const addFav = (req, res) => {
   const { name, photo, instructions, email } = req.body;
   const newFlower = new flowers({
@@ -43,8 +42,7 @@ const updateFav = (req, res) => {
       instructions: instructions,
     },
     { new: true },
-    (err, data) => res.send(data)
-  );
+    (err, data) => { res.send(data)
+    });
 };
-
 module.exports = { getApi, addFav, getFav, deleteFav, updateFav };
